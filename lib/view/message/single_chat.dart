@@ -1,6 +1,8 @@
 import 'package:amss/view/kconstant.dart';
 import 'package:flutter/material.dart';
 
+import '../kconstant.dart';
+
 class SingleChat extends StatefulWidget {
   const SingleChat({ Key? key }) : super(key: key);
 
@@ -108,7 +110,8 @@ class ChatAppBar extends StatelessWidget {
                   height: 44,width: 44,
                   decoration: BoxDecoration (
                     shape: BoxShape.circle,
-                    image: DecorationImage(image: AssetImage("assets/icon/profile.png"))
+                    border: Border.all(color: color),
+                    image: DecorationImage(image: NetworkImage("https://scontent.fbir5-1.fna.fbcdn.net/v/t1.6435-9/86937377_2630096997272845_4253014819956850688_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=5fcPYnxdJ10AX_Wy_nI&_nc_ht=scontent.fbir5-1.fna&oh=00_AT-V8Kc8FgSVR_KzflA9QLXXnBTHVv3SziQ7VW9rKlit9A&oe=6231C1DA"))
                   ),
                 ),
              ),
@@ -143,8 +146,12 @@ class SenderMessage extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: Colors.grey.withOpacity(0.5),
-                  borderRadius: BorderRadius.circular(5.0)
+                  color: color,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(15),
+                    bottomLeft:  Radius.circular(15),
+                    bottomRight:  Radius.circular(15)
+                  )
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -154,8 +161,9 @@ class SenderMessage extends StatelessWidget {
               Container(
                 height: 29,width: 29,
                 decoration: BoxDecoration (
+                  border: Border.all(color: color),
                   shape: BoxShape.circle,
-                  image: DecorationImage(image: AssetImage("assets/icon/profile.png"))
+                  image: DecorationImage(image: NetworkImage("https://scontent.fbir5-1.fna.fbcdn.net/v/t1.6435-9/86937377_2630096997272845_4253014819956850688_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=5fcPYnxdJ10AX_Wy_nI&_nc_ht=scontent.fbir5-1.fna&oh=00_AT-V8Kc8FgSVR_KzflA9QLXXnBTHVv3SziQ7VW9rKlit9A&oe=6231C1DA"))
                 ),
               ),
               
@@ -192,19 +200,24 @@ class ReceiverMessage extends StatelessWidget {
               Container(
                 height: 29,width: 29,
                 decoration: BoxDecoration (
+                  //border: Border.all(color: color),
                   shape: BoxShape.circle,
-                  image: DecorationImage(image: AssetImage("assets/icon/profile.png"))
+                  image: DecorationImage(image: NetworkImage("https://scontent.fbir5-1.fna.fbcdn.net/v/t1.6435-9/86937377_2630096997272845_4253014819956850688_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=5fcPYnxdJ10AX_Wy_nI&_nc_ht=scontent.fbir5-1.fna&oh=00_AT-V8Kc8FgSVR_KzflA9QLXXnBTHVv3SziQ7VW9rKlit9A&oe=6231C1DA"))
                 ),
               ),
               SizedBox(width: 11.0,),
               Container(
                 decoration: BoxDecoration(
-                  color: Colors.grey.withOpacity(0.5),
-                  borderRadius: BorderRadius.circular(5.0)
+                  color: Colors.white.withOpacity(.9),
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(15),
+                    bottomLeft:  Radius.circular(15),
+                    bottomRight:  Radius.circular(15)
+                  )
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text("$message",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 17.0)),
+                  child: Text("$message",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 17.0, )),
                 )),
             ],
           ),

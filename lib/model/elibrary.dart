@@ -5,5 +5,6 @@ class ElibraryModel{
   String? imageName;
   String? author;
   Color colors;
-  ElibraryModel({required this.title,required this.author, required this.imageName, required this.colors});
+  Color colors2;
+  ElibraryModel({required this.title,required this.author, required this.imageName, required this.colors , required this.colors2});
 }

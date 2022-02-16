@@ -2,6 +2,7 @@
 import 'package:amss/view/home/attendance/calender.dart';
 import 'package:amss/view/home/event/calendar.dart';
 import 'package:amss/view/home/event/event.dart';
+import 'package:amss/view/home/gallery/gallery.dart';
 import 'package:amss/view/kconstant.dart';
 import 'package:amss/view/widget/appbar/profile_appbar.dart';
 import 'package:amss/view/widget/appbar/profile_appbarC.dart';
@@ -23,6 +24,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     print(MediaQuery.of(context).orientation == Orientation.portrait);
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar: ProfileAppBarC(),
       body: SingleChildScrollView(
             child: Column(
@@ -33,28 +35,30 @@ class _HomeState extends State<Home> {
                 
                   SizedBox(height: 22,),
                   Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 277.0,
+                    //color: Colors.red,
+                    //width: MediaQuery.of(context).size.width,
+                    height: 333.0,
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
+                      padding: EdgeInsets.all(0),
                       child: Row(
                         children: [
                           GestureDetector(
                             onTap: (){
                                Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  Attendance()));
                             },
-                            child: home_page_menu(context, title:"Attendance",imageName: 'check.png',subtitle: "Check your attendance.",colors: Color.fromARGB(255, 104, 109, 101))),
+                            child: home_page_menu(context, title:"Attendance",imageName: 'check.png',subtitle: "Check your attendance.",colors1: Color.fromARGB(255, 106, 235, 228),colors2: Color(0xff2A9691))),
           
                           GestureDetector(
                             onTap: (){
-                             // Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  GalleryPage()));
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  GalleryPage()));
                             },
-                            child: home_page_menu(context, title:"Gallery",imageName: 'gallery.png',subtitle: 'View your photo' ,colors: Color.fromARGB(255, 219, 170, 77))),
+                            child: home_page_menu(context, title:"Gallery",imageName: 'gallery.png',subtitle: 'View your photo' ,colors1: Color.fromARGB(255, 177, 160, 245), colors2: Color(0xff603DEB))),
                           GestureDetector(
                             onTap: (){
                                Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  EventPage()));
                             },
-                            child: home_page_menu(context, title:"Event",imageName: 'events.png',subtitle: "Check Event.",colors: Color.fromARGB(255, 89, 107, 165) )),
+                            child: home_page_menu(context, title:"Event",imageName: 'events.png',subtitle: "Check Event.",colors1: Color.fromARGB(255, 255, 147, 153),colors2: Color.fromARGB(255, 241, 88, 96) )),
                         ],
                       ),
           
@@ -191,120 +195,156 @@ class _HomeState extends State<Home> {
       
   }
 
-  Padding home_page_menu(BuildContext context,{required String imageName, required String title, String? subtitle='', Color? colors = const Color.fromARGB(172, 111, 151, 233) }){
+  Widget home_page_menu(BuildContext context,{required String imageName, required String title, String? subtitle='', Color? colors1 = const Color.fromARGB(172, 111, 151, 233),Color colors2 = const Color.fromARGB(172, 111, 151, 233) }){
     return Padding(
-                padding: leftPadding*2,
-                child: Container(
-                  height: MediaQuery.of(context).size.height,
-                  width: 219,
-                  decoration: BoxDecoration(
-                    
-                    borderRadius: BorderRadius.circular(33),
-                    color: colors,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height/5,
-                        child: Image(image: AssetImage('assets/image/$imageName')),
-                      ),
-                      
-
-                      Text(title,style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),),
-                      Text(subtitle!,style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500),),
-
-                      title == 'Attendance'?Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children:[
-                              Row(
-                                
-                                children: [
-                                  SizedBox(
-                                    height: 29,
-                                    child: Image(image: AssetImage('assets/icon/total_day.png'))),
-                                    Padding(
-                                      padding: leftPadding,
-                                      child: RichText(
-                                        text: TextSpan(
-                                            text: '222 ',
-                                            style: TextStyle(
-                                                color: Colors.white, fontWeight: FontWeight.w500,fontSize: 13),
-                                            children: <TextSpan>[
-                                              TextSpan(text: 'days',
-                                                  style: TextStyle(
-                                                     color: Colors.white, fontWeight: FontWeight.bold,fontSize: 11),
-                                              )
-                                            ]
-                                        ),
-                                      ),
-                                      //Text("222 days",style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500,fontSize: 13),),
-                                    ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  SizedBox(
-                                    height: 29,
-                                    child: Image(image: AssetImage('assets/icon/today.png'))),
-                                    Padding(
-                                      padding: leftPadding,
-                                      child: RichText(
-                                        text: TextSpan(
-                                            text: '222 ',
-                                            style: TextStyle(
-                                                color: Colors.white, fontWeight: FontWeight.w500,fontSize: 13),
-                                            children: <TextSpan>[
-                                              TextSpan(text: 'days',
-                                                  style: TextStyle(
-                                                     color: Colors.white, fontWeight: FontWeight.bold,fontSize: 11),
-                                              )
-                                            ]
-                                        ),
-                                      ),
-                                      
-                                      //Text("222 days",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 13),),
-                                    ),
-                                ],
-                              ),
-                                
-                          ]
-                        ),
-                      ): SizedBox(),
-                    ],
-                  ),
-                  
-                ),
-              );
-  }
-
-  Container homepage_topic({Color? color, required String? text, required String? iconName}) {
-    return Container(
-            height: 111.0,width: 111.0,
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        width: 223,
+        height: 288,
+        decoration: BoxDecoration(
+           boxShadow: [
+              elevation(
+                offsetX: 5,
+                offsetY: 4,
+                blurRadius: 10,
+                spreadRadius: 1,
+                colors: Color.fromARGB(255, 83, 83, 83).withOpacity(.3)
+              )
+            ],
+          borderRadius: BorderRadius.circular(33),
+          gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                colors1! ,colors2 
+              ]),
+        ),
+        //height: MediaQuery.of(context).size.height+22,
+        child: Padding(
+          padding: const EdgeInsets.all(0.0),
+          child: Container(
+            height: 111,
+            width: 2,
             decoration: BoxDecoration(
-              color: color ?? Colors.red,
-              borderRadius: BorderRadius.circular(19),
-              boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey,
-                    offset: Offset(8.0, 8.0), //(x,y)
-                    blurRadius: 11.0,
-                  ),
-                ],
+              border: Border.all(color: Colors.white,width: 3),
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                colors1,colors2
+              ]),
+              borderRadius: BorderRadius.circular(33),
+              color: colors1,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 SizedBox(
-                  height: 55,
-                  child: Image(image: AssetImage('assets/icon/$iconName'))),
-
-                  Text("$text",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
-                  
+                  height: MediaQuery.of(context).size.height/5,
+                  child: Image(image: AssetImage('assets/image/$imageName')),
+                ),
+                
+      
+                Text(title,style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),),
+                Text(subtitle!,style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500),),
+      
+                title == 'Attendance'?Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children:[
+                        Row(
+                          
+                          children: [
+                            SizedBox(
+                              height: 29,
+                              child: Image(image: AssetImage('assets/icon/total_day.png'))),
+                              Padding(
+                                padding: leftPadding,
+                                child: RichText(
+                                  text: TextSpan(
+                                      text: '222 ',
+                                      style: TextStyle(
+                                          color: Colors.white, fontWeight: FontWeight.w500,fontSize: 13),
+                                      children: <TextSpan>[
+                                        TextSpan(text: 'days',
+                                            style: TextStyle(
+                                               color: Colors.white, fontWeight: FontWeight.bold,fontSize: 11),
+                                        )
+                                      ]
+                                  ),
+                                ),
+                                //Text("222 days",style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500,fontSize: 13),),
+                              ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            SizedBox(
+                              height: 29,
+                              child: Image(image: AssetImage('assets/icon/today.png'))),
+                              Padding(
+                                padding: leftPadding,
+                                child: RichText(
+                                  text: TextSpan(
+                                      text: '222 ',
+                                      style: TextStyle(
+                                          color: Colors.white, fontWeight: FontWeight.w500,fontSize: 13),
+                                      children: <TextSpan>[
+                                        TextSpan(text: 'days',
+                                            style: TextStyle(
+                                               color: Colors.white, fontWeight: FontWeight.bold,fontSize: 11),
+                                        )
+                                      ]
+                                  ),
+                                ),
+                                
+                                //Text("222 days",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 13),),
+                              ),
+                          ],
+                        ),
+                          
+                    ]
+                  ),
+                ): SizedBox(),
               ],
             ),
-          );
+            
+          ),
+        ),
+      ),
+    );
+  }
+
+  Container homepage_topic({Color? color, required String? text, required String? iconName}) {
+    return Container(
+      height: 188.0,width: 188.0,
+      color: Colors.red,
+      child: Container(
+              height: 111.0,width: 111.0,
+              decoration: BoxDecoration(
+                color: color ?? Colors.red,
+                borderRadius: BorderRadius.circular(19),
+                boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      offset: Offset(8.0, 8.0), //(x,y)
+                      blurRadius: 11.0,
+                    ),
+                  ],
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    height: 55,
+                    child: Image(image: AssetImage('assets/icon/$iconName'))),
+    
+                    Text("$text",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
+                    
+                ],
+              ),
+            ),
+    );
   }
 }

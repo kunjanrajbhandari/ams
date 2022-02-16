@@ -25,26 +25,34 @@ class _ElearningState extends State<Elearning> {
       title: "Atomic Habits", 
       subtitle: "Rahul Sah", 
       imageName: "image12.png", 
-      colors: color,
+      colors: Color.fromARGB(255, 89, 240, 194),
+      colors2:Color.fromARGB(255, 89, 240, 194),
     ),
     ElearningModel(
       title: "Atomic Habits", 
       subtitle: "Rahul Sah", 
       imageName: "image13.png", 
-      colors: const   Color(0xffDDB15E),
+      colors: Color.fromARGB(255, 243, 179, 67),
+      colors2:Color.fromARGB(255, 243, 179, 67),
+     
     ),
     ElearningModel(
       title: "Atomic Habits", 
       subtitle: "Rahul Sah", 
       imageName: "image11.png", 
-      colors: const Color(0xff6D7FB8),
+       colors: Color.fromARGB(255, 177, 160, 245),
+      colors2:Color.fromARGB(255, 177, 160, 245),
+      
     ),
 
     ElearningModel(
       title: "Atomic Habits", 
       subtitle: "Rahul Sah", 
       imageName: "image10.png", 
-      colors: const Color.fromARGB(255, 91, 95, 89),
+      colors: Color.fromARGB(255, 121, 206, 252),
+      colors2: Color.fromARGB(255, 121, 206, 252),
+      
+      
     )
   ];
   bool isPressed = false;
@@ -71,7 +79,7 @@ class _ElearningState extends State<Elearning> {
                     padding: const EdgeInsets.only(top:8.0),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: elearning_list(context,title: elearningList[index].title, subtitle: elearningList[index].subtitle, imageName: elearningList[index].imageName, colors: elearningList[index].colors),
+                      child: elearning_list(context,title: elearningList[index].title, subtitle: elearningList[index].subtitle, imageName: elearningList[index].imageName, colors: elearningList[index].colors, colors2:elearningList[index].colors2 ),
                     ),
                   );
                 },
@@ -84,17 +92,23 @@ class _ElearningState extends State<Elearning> {
     );
   }
 
-  Container elearning_list(BuildContext context,{required String imageName, required String? title, required String subtitle, required Color colors }) {
+  Container elearning_list(BuildContext context,{required String imageName, required String? title, required String subtitle, required Color colors,required Color colors2 }) {
     return Container(
           height:144.0, width: MediaQuery.of(context).size.width-33,
           decoration: BoxDecoration(
+            gradient: LinearGradient(
+              
+              colors: [
+                colors, colors2
+                //Color.fromARGB(255, 106, 235, 228),Color(0xff2A9691)
+            ]),
             boxShadow: [
               elevation(
                 offsetX: 4,
-                offsetY: 9,
-                blurRadius: 2,
+                offsetY: 4,
+                blurRadius: 10,
                 spreadRadius: 1,
-                colors: lighten(darken(colors,40))
+                colors: Colors.black.withOpacity(.3)
               )
             ],
             borderRadius: BorderRadius.circular(24),
@@ -113,10 +127,19 @@ class _ElearningState extends State<Elearning> {
                   children: [
                     SizedBox(
                       width: MediaQuery.of(context).size.width/1.9,
-                      child: Text("$title",style: const TextStyle(fontSize: 19,fontWeight: FontWeight.bold,color: Colors.white),)),
+                      child: Text("$title",style:  TextStyle(fontSize: 24,fontWeight: FontWeight.bold,color: Colors.white, shadows: <Shadow>[
+                      Shadow(
+                        offset: Offset(1.0, 1.0),
+                        blurRadius: 2.0,
+                        color:Colors.black.withOpacity(0.2))
+                        ]),)),
                     SizedBox(
                       width: MediaQuery.of(context).size.width/1.9,
-                      child: Text("-$subtitle",style: const TextStyle(fontSize: 13,fontWeight: FontWeight.bold,color: Colors.white),)),
+                      child: Text("-$subtitle",style:  TextStyle(fontSize: 13,fontWeight: FontWeight.bold,color: Colors.white,shadows: <Shadow>[
+                      Shadow(
+                        offset: Offset(1.0, 1.0),
+                        blurRadius: 2.0,
+                        color:Colors.black.withOpacity(.2))]),)),
                       SizedBox(
                         width: MediaQuery.of(context).size.width/1.9,
                         child: Row(

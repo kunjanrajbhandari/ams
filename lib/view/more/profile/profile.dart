@@ -18,7 +18,7 @@ class _ProfileState extends State<Profile> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              color: primaryColor,
+              color: color,
               height: 299.0,
               width: MediaQuery.of(context).size.width,
       
@@ -50,7 +50,7 @@ class _ProfileState extends State<Profile> {
                         height: 70.9,
                         width: 70.9,
                         decoration: const BoxDecoration(
-                          image: DecorationImage(image: AssetImage("assets/icon/profile.png"),fit: BoxFit.fill),
+                          image: DecorationImage(image: NetworkImage("https://scontent.fbir5-1.fna.fbcdn.net/v/t1.6435-9/86937377_2630096997272845_4253014819956850688_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=5fcPYnxdJ10AX_Wy_nI&_nc_ht=scontent.fbir5-1.fna&oh=00_AT-V8Kc8FgSVR_KzflA9QLXXnBTHVv3SziQ7VW9rKlit9A&oe=6231C1DA"),fit: BoxFit.fill),
                           //borderRadius: BorderRadius.circular(55.0)
                           shape: BoxShape.circle
                         ),

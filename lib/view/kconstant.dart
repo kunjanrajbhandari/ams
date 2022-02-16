@@ -5,7 +5,7 @@ Color color = Color.fromARGB(255, 86, 193, 250);
 Color primaryColor = const Color(0xff11284C);
 Color secondaryColor = const  Color(0xffF0C848);
 
-Color backgroundColor = const Color.fromARGB(255, 240, 247, 252);
+Color backgroundColor = Color.fromARGB(237, 234, 246, 255);
 EdgeInsetsGeometry leftPadding = const EdgeInsets.only(left: 8.0);
 EdgeInsetsGeometry rightPadding = const EdgeInsets.only(right: 8.0);
 EdgeInsetsGeometry topPadding = const EdgeInsets.only(top: 8.0);

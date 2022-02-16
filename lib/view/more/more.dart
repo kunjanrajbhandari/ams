@@ -44,13 +44,13 @@ class _ViewMoreState extends State<ViewMore> {
                     onTap: (){
                       Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  OnlineClass()));
                     },
-                    child: moreItem(context, image: 'online-class.png', title: 'Online Class')),
+                    child: moreItem(context, image: 'webinar.png', title: 'Online Class')),
                   const Divider(endIndent: 11,indent: 11,),
                   GestureDetector(
                     onTap: (){
                       Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  const ResultMain()));
                     },
-                    child: moreItem(context, image: 'exam.png', title: 'Result')),
+                    child: moreItem(context, image: 'result.png', title: 'Result')),
                   const Divider(endIndent: 11,indent: 11,),
                   GestureDetector(
                     onTap: (){
@@ -58,7 +58,7 @@ class _ViewMoreState extends State<ViewMore> {
                     },
                     child: moreItem(context, image: 'payment.png', title: 'Payment')),
                   const Divider(endIndent: 11,indent: 11,),
-                  moreItem(context, image: 'settings.png', title: 'Settings'),
+                  moreItem(context, image: 'setting.png', title: 'Settings'),
                   
                 ],
               ),
@@ -78,7 +78,7 @@ class _ViewMoreState extends State<ViewMore> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-          Image(image: AssetImage("assets/icon/$image"),height: 44,),
+          Image(image: AssetImage("assets/icons/$image"),height: 29,width: 29,),
           Padding(
             padding:  leftPadding*4,
             child: Text("$title",style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),),

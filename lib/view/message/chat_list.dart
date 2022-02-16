@@ -17,7 +17,7 @@ class _ChatListState extends State<ChatList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ProfileAppBarC(title: "Chat",),
+      appBar: ProfileAppBarC(title: "Message",),
       backgroundColor: backgroundColor,
       body: SingleChildScrollView(
         physics: ScrollPhysics(),
@@ -86,33 +86,64 @@ class Chat extends StatelessWidget {
 
           const SizedBox(height: 11),
           SizedBox(
-            width: MediaQuery.of(context).size.width-55,
+            width: MediaQuery.of(context).size.width,
             height: 77.9,  
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
+                Container(
+                  
+                  child: Row(
 
-                  children: [
-                    Container(
-                      height: 55,width: 55,
-                      decoration: BoxDecoration (
-                        shape: BoxShape.circle,
-                        image: DecorationImage(image: AssetImage("assets/icon/$image"))
+                    children: [
+                      SizedBox(width: 11,),
+                      Container(
+                        height: 47,width: 47,
+                        decoration: BoxDecoration (
+                          border: Border.all(color: color),
+                          shape: BoxShape.circle,
+                          image: DecorationImage(image: NetworkImage("https://scontent.fbir5-1.fna.fbcdn.net/v/t1.6435-9/86937377_2630096997272845_4253014819956850688_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=5fcPYnxdJ10AX_Wy_nI&_nc_ht=scontent.fbir5-1.fna&oh=00_AT-V8Kc8FgSVR_KzflA9QLXXnBTHVv3SziQ7VW9rKlit9A&oe=6231C1DA"))
+                        ),
                       ),
-                    ),
-                    SizedBox(width: 11.0,),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Ram Bhandari", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 17.0),),
-                        Text("See you ", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w500, fontSize: 16.0),),
-                      ],
-                    ),
-                  ],
+                      SizedBox(width: 19.0,),
+                      Container(
+                         width: MediaQuery.of(context).size.width/1.39,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(22)
+                      ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left:8.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("Ram Bhandari", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 17.0),),
+                                  Text("See you ramu kaka", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w500, fontSize: 16.0),),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right:8.0),
+                              child: Container(
+                                
+                        height:22,width: 22,decoration: BoxDecoration(shape: BoxShape.circle, color: Color.fromARGB(255, 231, 101, 91)),
+                        child: Center(child: Text("1", style:  TextStyle(color: Colors.white, fontSize: 11),))),
+                            ),
+
+                        //SizedBox(width: .0,)
+                    
+                          ],
+                        ),
+                      ),
+                      
+                    ],
+                  ),
                 ),
-                Text("1 min", style:  TextStyle(color: Colors.grey),)
+               
               ],
             ),    
           ),
