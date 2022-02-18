@@ -26,19 +26,23 @@ class _OnlineClassState extends State<OnlineClass> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffEAF5FD),
       body: SingleChildScrollView(
         child: Column(
           children: [
             ProfileAppBar(title: "Online Class", backArrow: true,),
+            SizedBox(height: 11,),
             Container(
               width: MediaQuery.of(context).size.width-19,
               decoration: BoxDecoration(
-                color: primaryColor,
+                color: color,
                 borderRadius: BorderRadius.circular(18),
                 boxShadow: [
                   elevation(
                     colors: lighten(primaryColor,33)
-                  )
+                  ),
+
+                 
                 ]
               ),
               child: Padding(
@@ -94,11 +98,8 @@ class _OnlineClassState extends State<OnlineClass> {
                 scrollDirection: Axis.vertical,
                 itemBuilder: (context, index){
                   return Padding(
-                    padding: const EdgeInsets.only(top:8.0),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: assignment_list(context,courseName: elibraryList[index].courseName!, colors: elibraryList[index].colors!, startTime: elibraryList[index].startTime!,endTime:elibraryList[index].endTime!, period: elibraryList[index].period!),
-                    ),
+                    padding: const EdgeInsets.all(11.0),
+                    child: assignment_list(context,courseName: elibraryList[index].courseName!, colors: elibraryList[index].colors!, startTime: elibraryList[index].startTime!,endTime:elibraryList[index].endTime!, period: elibraryList[index].period!),
                   );
                 },
               )
@@ -115,13 +116,23 @@ Container assignment_list(BuildContext context,{required String startTime,requir
           width: MediaQuery.of(context).size.width-33,
           decoration: BoxDecoration( 
             borderRadius: BorderRadius.circular(24),
-            color: colors,
+            color: Colors.white,
+            //Colors.grey[300],
             boxShadow: [
-              elevation(colors: darken(colors, 33))
+               elevation()
+              // elevation(
+              //   offsetX: 5,offsetY: 5,
+              //   blurRadius: 3,
+              //   colors: Colors.grey.shade400),
+              //  elevation(
+              //       offsetX: -4,offsetY: -4,
+              //       blurRadius: 3,
+              //       colors: Colors.white.withOpacity(0.6)
+              //     )
             ]
           ),
          child: Padding(
-           padding: const EdgeInsets.all(8.0),
+           padding: const EdgeInsets.all(0.0),
            child: Column(
              crossAxisAlignment: CrossAxisAlignment.start,
              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -132,18 +143,21 @@ Container assignment_list(BuildContext context,{required String startTime,requir
                  children: [
                    Container(
                      //color: Colors.red,
-                     padding: const EdgeInsets.only(top: 8,left:33,right: 22),
+                     padding: const EdgeInsets.only(top: 2,left:22,right: 22),
                      width: MediaQuery.of(context).size.width-155,
                      child: Text("$startTime  -  $endTime" ,style: TextStyle(fontSize: 15,fontWeight: FontWeight.normal,color: Colors.black),),
                      ),
-                     Text("Period: $period" ,style: TextStyle(fontSize: 15,fontWeight: FontWeight.normal,color: Colors.black),),
+                     Padding(
+                       padding: const EdgeInsets.only(right:8.0),
+                       child: Text("Period: $period" ,style: TextStyle(fontSize: 15,fontWeight: FontWeight.normal,color: Colors.black),),
+                     ),
                  ],
                ),
               
                
                Container(
                 // color: Colors.red,
-                 padding: const EdgeInsets.only(top: 8,left:49,right: 22),
+                 padding: const EdgeInsets.only(top: 2,left:33,right: 22),
                  width: MediaQuery.of(context).size.width-111,
                  child: Text(courseName, style: const TextStyle(fontSize: 19,fontWeight: FontWeight.bold,color: Colors.black),)),
               

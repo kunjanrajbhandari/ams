@@ -24,26 +24,29 @@ class _SortablePageState extends State<SortablePage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              ProfileAppBar(title: "result",backArrow: true,),
-              SizedBox(height: 22,),
-              Image(image: AssetImage('assets/image/piechart.png')),
-              
+        body: Scaffold(
+          backgroundColor: backgroundColor,
+          body: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                ProfileAppBar(title: "result",backArrow: true,),
+                SizedBox(height: 22,),
+                Image(image: AssetImage('assets/image/piechart.png')),
                 
-              
-              SizedBox(height: 22,),
-              Padding(
-                padding: leftPadding,
-                child: IconButton(padding: EdgeInsets.all(0),
-                  tooltip: "Download result",
-                  onPressed: (){}, icon: Icon(Icons.file_download_sharp)),
-              ),
-              buildDataTable(),
-            ],
+                  
+                
+                SizedBox(height: 22,),
+                Padding(
+                  padding: leftPadding,
+                  child: IconButton(padding: EdgeInsets.all(0),
+                    tooltip: "Download result",
+                    onPressed: (){}, icon: Icon(Icons.file_download_sharp)),
+                ),
+                buildDataTable(),
+              ],
+            ),
           ),
         ),
       );

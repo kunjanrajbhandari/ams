@@ -19,7 +19,7 @@ class _EventPageState extends State<CalendarSF> {
     return SfCalendar(
       // initialDisplayDate: DateTime(2022,01, 03,04,3),
       // initialSelectedDate: DateTime.now(),
-      view: CalendarView.month,
+      view: CalendarView.week,
       dataSource: MeetingData(getappointment()),
     );
   }
@@ -31,8 +31,8 @@ List<Appointment> getappointment(){
   final DateTime today = DateTime.now();
   final DateTime startTime = DateTime(today.year, today.month, today.day, 9,0);
   final DateTime endTime = startTime.add(Duration(hours: 2));
-  meetings.add(Appointment(startTime: startTime, endTime: endTime, subject: "Conference", color: color, recurrenceRule: 'FREQ=DAILY;COUNT=10', isAllDay: true));
-  meetings.add(Appointment(startTime: startTime, endTime: endTime, subject: "abcdeft", color: color, recurrenceRule: 'FREQ=DAILY;COUNT=10', isAllDay: false));
+  //meetings.add(Appointment(startTime: startTime, endTime: endTime, subject: "Conference", color: color, recurrenceRule: 'FREQ=DAILY;COUNT=10', isAllDay: false));
+  meetings.add(Appointment(startTime: DateTime(2022,02,14, 10,0), endTime: DateTime(2022,02,14, 11), subject: "Kunjan", color: Colors.green, isAllDay: false,recurrenceRule: 'FREQ=DAILY;COUNT=10',));
   return meetings;
 }
 

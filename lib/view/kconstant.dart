@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-Color color = Color.fromARGB(255, 86, 193, 250);
+Color color = Color.fromARGB(255, 110, 198, 245);
 Color primaryColor = const Color(0xff11284C);
 Color secondaryColor = const  Color(0xffF0C848);
-
-Color backgroundColor = Color.fromARGB(237, 234, 246, 255);
+Color profileColor = Color.fromARGB(235, 150, 210, 255);
+Color backgroundColor = Color(0xffEAF5FD);
+//Color.fromARGB(237, 234, 246, 255);
 EdgeInsetsGeometry leftPadding = const EdgeInsets.only(left: 8.0);
 EdgeInsetsGeometry rightPadding = const EdgeInsets.only(right: 8.0);
 EdgeInsetsGeometry topPadding = const EdgeInsets.only(top: 8.0);
@@ -14,10 +15,10 @@ EdgeInsetsGeometry bottomPadding = const EdgeInsets.only(bottom: 8.0);
 
 BoxShadow elevation({Color? colors, double? offsetX, double? offsetY, double? spreadRadius, double? blurRadius}){
   return BoxShadow(
-    color: colors ?? Colors.grey.withOpacity(0.7),
+    color: colors ?? Color.fromARGB(255, 83, 83, 83).withOpacity(.3),
     spreadRadius: spreadRadius??1,
-    blurRadius: blurRadius??4,
-    offset: Offset(offsetX??5, offsetY??8), 
+    blurRadius: blurRadius??10,
+    offset: Offset(offsetX??5, offsetY??4), 
   );
 }
 

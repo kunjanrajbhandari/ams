@@ -66,7 +66,7 @@ class _HomeState extends State<Home> {
                   ),
                 
                   //Events
-                  SizedBox(height: 44.0,),
+                  SizedBox(height: 19.0,),
                   Column(
                     children: [
                       Center(
@@ -74,6 +74,16 @@ class _HomeState extends State<Home> {
                           height: 55,
                           width: MediaQuery.of(context).size.width-22,
                           decoration: BoxDecoration(
+                            color: Colors.white,
+                            boxShadow: [
+                              elevation(
+                                offsetX: 3,
+                                offsetY: 3,
+                                blurRadius: 7,
+                                spreadRadius: 1,
+                                colors: Color.fromARGB(255, 83, 83, 83).withOpacity(.3)
+                              )
+                            ],
                             border: Border.all(color: Colors.grey.withOpacity(0.3),width: 1.5),
                             borderRadius: BorderRadius.only(
                               topRight: Radius.circular(18),
@@ -141,7 +151,7 @@ class _HomeState extends State<Home> {
                           height: 333,
                           width: MediaQuery.of(context).size.width-22,
                           decoration: BoxDecoration(
-                            
+                            color: Colors.white,
                             border: Border.all(color: Colors.grey.withOpacity(0.3),width: 1.5),
                           ),
                           child: Scrollbar(
@@ -173,7 +183,8 @@ class _HomeState extends State<Home> {
                                           SizedBox(height: 11,),
                                           Icon(Icons.attach_file),
                                         ],
-                                      )
+                                      ),
+                                      Divider(color: Colors.black.withOpacity(0.4),)
                           
                                     ],
                                   ),
@@ -236,78 +247,100 @@ class _HomeState extends State<Home> {
               borderRadius: BorderRadius.circular(33),
               color: colors1,
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height/5,
-                  child: Image(image: AssetImage('assets/image/$imageName')),
-                ),
-                
-      
-                Text(title,style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),),
-                Text(subtitle!,style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500),),
-      
-                title == 'Attendance'?Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children:[
-                        Row(
-                          
-                          children: [
-                            SizedBox(
-                              height: 29,
-                              child: Image(image: AssetImage('assets/icon/total_day.png'))),
-                              Padding(
-                                padding: leftPadding,
-                                child: RichText(
-                                  text: TextSpan(
-                                      text: '222 ',
-                                      style: TextStyle(
-                                          color: Colors.white, fontWeight: FontWeight.w500,fontSize: 13),
-                                      children: <TextSpan>[
-                                        TextSpan(text: 'days',
-                                            style: TextStyle(
-                                               color: Colors.white, fontWeight: FontWeight.bold,fontSize: 11),
-                                        )
-                                      ]
-                                  ),
-                                ),
-                                //Text("222 days",style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500,fontSize: 13),),
-                              ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            SizedBox(
-                              height: 29,
-                              child: Image(image: AssetImage('assets/icon/today.png'))),
-                              Padding(
-                                padding: leftPadding,
-                                child: RichText(
-                                  text: TextSpan(
-                                      text: '222 ',
-                                      style: TextStyle(
-                                          color: Colors.white, fontWeight: FontWeight.w500,fontSize: 13),
-                                      children: <TextSpan>[
-                                        TextSpan(text: 'days',
-                                            style: TextStyle(
-                                               color: Colors.white, fontWeight: FontWeight.bold,fontSize: 11),
-                                        )
-                                      ]
-                                  ),
-                                ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(33),
+              child: Stack(
+                children: [
+                //   Positioned(
+                //    top:-44,
+                //     //right: -5,
+                //   //  left: .2,
+                //    //left: MediaQuery.of(context).size.width/1.6,
+                //    child: Container(
+                //      //margin: EdgeInsets.only(top: 40, left: 40, right: 40),
+                //      height: 222,width: 333,
+                //      decoration: BoxDecoration(
+                //        color: lighten(colors1,30),
+                //        shape: BoxShape.circle
+                //        //borderRadius: new BorderRadius.all(Radius.elliptical(150, 80)),
+                //      ),
+                //    ),
+                //  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height/5,
+                        child: Image(image: AssetImage('assets/image/$imageName')),
+                      ),
+                      
+                  
+                      Text(title,style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),),
+                      Text(subtitle!,style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500),),
+                  
+                      title == 'Attendance'?Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children:[
+                              Row(
                                 
-                                //Text("222 days",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 13),),
+                                children: [
+                                  SizedBox(
+                                    height: 29,
+                                    child: Image(image: AssetImage('assets/icon/total_day.png'))),
+                                    Padding(
+                                      padding: leftPadding,
+                                      child: RichText(
+                                        text: TextSpan(
+                                            text: '222 ',
+                                            style: TextStyle(
+                                                color: Colors.white, fontWeight: FontWeight.w500,fontSize: 13),
+                                            children: <TextSpan>[
+                                              TextSpan(text: 'days',
+                                                  style: TextStyle(
+                                                     color: Colors.white, fontWeight: FontWeight.bold,fontSize: 11),
+                                              )
+                                            ]
+                                        ),
+                                      ),
+                                      //Text("222 days",style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500,fontSize: 13),),
+                                    ),
+                                ],
                               ),
-                          ],
+                              Row(
+                                children: [
+                                  SizedBox(
+                                    height: 29,
+                                    child: Image(image: AssetImage('assets/icon/today.png'))),
+                                    Padding(
+                                      padding: leftPadding,
+                                      child: RichText(
+                                        text: TextSpan(
+                                            text: '222 ',
+                                            style: TextStyle(
+                                                color: Colors.white, fontWeight: FontWeight.w500,fontSize: 13),
+                                            children: <TextSpan>[
+                                              TextSpan(text: 'days',
+                                                  style: TextStyle(
+                                                     color: Colors.white, fontWeight: FontWeight.bold,fontSize: 11),
+                                              )
+                                            ]
+                                        ),
+                                      ),
+                                      
+                                      //Text("222 days",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 13),),
+                                    ),
+                                ],
+                              ),
+                                
+                          ]
                         ),
-                          
-                    ]
+                      ): SizedBox(),
+                    ],
                   ),
-                ): SizedBox(),
-              ],
+                ],
+              ),
             ),
             
           ),
@@ -318,33 +351,29 @@ class _HomeState extends State<Home> {
 
   Container homepage_topic({Color? color, required String? text, required String? iconName}) {
     return Container(
-      height: 188.0,width: 188.0,
-      color: Colors.red,
-      child: Container(
-              height: 111.0,width: 111.0,
-              decoration: BoxDecoration(
-                color: color ?? Colors.red,
-                borderRadius: BorderRadius.circular(19),
-                boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(8.0, 8.0), //(x,y)
-                      blurRadius: 11.0,
-                    ),
-                  ],
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SizedBox(
-                    height: 55,
-                    child: Image(image: AssetImage('assets/icon/$iconName'))),
-    
-                    Text("$text",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
-                    
+            height: 111.0,width: 111.0,
+            decoration: BoxDecoration(
+              color: color ?? Colors.red,
+              borderRadius: BorderRadius.circular(19),
+              boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey,
+                    offset: Offset(8.0, 8.0), //(x,y)
+                    blurRadius: 11.0,
+                  ),
                 ],
-              ),
             ),
-    );
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SizedBox(
+                  height: 55,
+                  child: Image(image: AssetImage('assets/icon/$iconName'))),
+    
+                  Text("$text",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
+                  
+              ],
+            ),
+          );
   }
 }

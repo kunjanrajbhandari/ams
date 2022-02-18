@@ -85,18 +85,23 @@ class _ElibraryState extends State<Elibrary> {
             ),
          // Image(image: AssetImage('assets/image/image1.png'))
              Padding(
-              padding: EdgeInsets.only(left:28.0,right: 28,top: 11.0),
-              child: TextField(
-              
-              decoration: InputDecoration(
-                suffixIcon: Padding(
-                  padding: rightPadding,
-                  child: IconButton(onPressed: (){}, icon: Icon(Icons.search)),
+              padding: EdgeInsets.only(left:15.0,right: 15,top: 8.0),
+              child: SizedBox(
+                //height: 44,
+                child: TextField(
+                
+                decoration: InputDecoration(
+                  helperStyle: TextStyle(fontSize: 33),
+                  //border: UnderlineInputBorder(),
+                  suffixIcon: Padding(
+                    padding: rightPadding,
+                    child: IconButton(onPressed: (){}, icon: Icon(Icons.search)),
+                  ),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(21), ),
+                  hintText: 'Enter a search term',
                 ),
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(33)),
-                hintText: 'Enter a search term',
-              ),
           ),
+              ),
             ),
             ListView.builder(
               padding: const EdgeInsets.all(0),
@@ -121,69 +126,96 @@ class _ElibraryState extends State<Elibrary> {
     );
   }
 
-  Container elearning_list(BuildContext context,{required String imageName, required String? title, required String author,required Color colors, required Color colors2}) {
-    return Container(
-          height:122.0, width: MediaQuery.of(context).size.width-33,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-                // begin: Alignment.topCenter,
-                // end: Alignment.bottomCenter,
-                colors: [
-                colors ,colors2 
-              ]),
-            boxShadow: [
-              elevation(
-                offsetX: 5,
-                offsetY: 4,
-                blurRadius: 10,
-                spreadRadius: 1,
-                colors: Color.fromARGB(255, 83, 83, 83).withOpacity(.3)
-              )
-            ],
-            borderRadius: BorderRadius.circular(24),
-            color: colors
-          ),
-         child: Row(
-           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-           children:[
-             //Padding(padding: EdgeInsets.all(9)),
-             Padding(
-               padding: const EdgeInsets.all(8.0),
-               child: Container(color: colors,
-                 width: 69,
-                 height: 99,
-                 child: Image(image: AssetImage('assets/book_image/$imageName'),fit: BoxFit.fill,)),
-             ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width/1.9,
-                      child: Text("$title",style: TextStyle(fontSize: 19,fontWeight: FontWeight.bold,color: Colors.white),)),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width/1.9,
-                      child: Text("A book by $author  ",style: TextStyle(fontSize: 13,fontWeight: FontWeight.normal,color: Colors.white),)),
-                    
-                    // SizedBox(
-                    //   width: MediaQuery.of(context).size.width/1.9,
-                    //   child: Text("$subtitle",style: TextStyle(fontSize: 13,fontWeight: FontWeight.normal,color: Colors.white),)),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width/1.9,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            IconButton(onPressed: (){}, icon: Icon(Icons.remove_red_eye),color: Colors.white,),
-                            IconButton(onPressed: (){}, icon: Icon(Icons.download),color: Colors.white,),
-                          ],
-                        ),
-                      )
-
-                  ],
+  Widget elearning_list(BuildContext context,{required String imageName, required String? title, required String author,required Color colors, required Color colors2}) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(24),
+      child: Container(
+            height:122.0, width: MediaQuery.of(context).size.width-33,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  // begin: Alignment.topCenter,
+                  // end: Alignment.bottomCenter,
+                  colors: [
+                  colors ,colors2 
+                ]),
+              boxShadow: [
+                elevation(
+                  offsetX: 5,
+                  offsetY: 4,
+                  blurRadius: 10,
+                  spreadRadius: 1,
+                  colors: Color.fromARGB(255, 83, 83, 83).withOpacity(.3)
                 )
-           ]
-         ),
-        );
+              ],
+              borderRadius: BorderRadius.circular(24),
+              color: colors
+            ),
+           child: Stack(
+             children: [
+               //start oval container ui
+                 Positioned(
+                   top:-44,
+                   left: MediaQuery.of(context).size.width/1.6,
+                   child: RotationTransition(
+                     turns: const AlwaysStoppedAnimation(360/380),
+                     child: Container(
+                       //margin: EdgeInsets.only(top: 40, left: 40, right: 40),
+                       height: 111,width: 299,
+                       decoration: BoxDecoration(
+                         color: lighten(colors2,30),
+                         borderRadius: new BorderRadius.all(Radius.elliptical(150, 80)),
+                       ),
+                     ),
+                   ),
+                 ),
+                 //end oval container ui
+               Row(
+                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                 children:[
+                   //Padding(padding: EdgeInsets.all(9)),
+                   Padding(
+                     padding: const EdgeInsets.all(8.0),
+                     child: Container(color: colors,
+                       width: 69,
+                       height: 99,
+                       child: Image(image: AssetImage('assets/book_image/$imageName'),fit: BoxFit.fill,)),
+                   ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width/1.9,
+                            child: Text("$title",style: TextStyle(fontSize: 19,fontWeight: FontWeight.bold,color: Colors.white),)),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width/1.9,
+                            child: Text("A book by $author  ",style: TextStyle(fontSize: 13,fontWeight: FontWeight.normal,color: Colors.white),)),
+                          
+                          // SizedBox(
+                          //   width: MediaQuery.of(context).size.width/1.9,
+                          //   child: Text("$subtitle",style: TextStyle(fontSize: 13,fontWeight: FontWeight.normal,color: Colors.white),)),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width/1.9,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(right:18.0),
+                                    child: IconButton(onPressed: (){}, icon: Icon(Icons.remove_red_eye),color: Colors.white,iconSize: 33,),
+                                  ),
+                                  IconButton(onPressed: (){}, icon: Icon(Icons.download),color: Colors.white,iconSize: 33,),
+                                ],
+                              ),
+                            )
+    
+                        ],
+                      )
+                 ]
+               ),
+             ],
+           ),
+          ),
+    );
   }
 }

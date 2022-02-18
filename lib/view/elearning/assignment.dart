@@ -82,9 +82,13 @@ Container assignment_list(BuildContext context,{required String fromDate,require
           decoration: BoxDecoration( 
             boxShadow: [
               elevation(
-                colors:Colors.black.withOpacity(.7)
-                //lighten(darken(colors,20))
+                offsetX: 5,
+                offsetY: 4,
+                blurRadius: 10,
+                spreadRadius: 1,
+                colors: Color.fromARGB(255, 83, 83, 83).withOpacity(.3)
               )
+            
               // BoxShadow(
               //   color: Colors.grey.withOpacity(0.7),
               //   spreadRadius: 1,

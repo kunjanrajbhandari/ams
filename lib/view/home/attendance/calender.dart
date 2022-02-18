@@ -56,12 +56,16 @@ class _AttendanceState extends State<Attendance> {
           Container(
               width: MediaQuery.of(context).size.width-19,
               decoration: BoxDecoration(
-                color: primaryColor,
+                color: color,
                 borderRadius: BorderRadius.circular(18),
                 boxShadow: [
                   elevation(
-                    colors: lighten(primaryColor,33)
-                  )
+                offsetX: 5,
+                offsetY: 4,
+                blurRadius: 10,
+                spreadRadius: 1,
+                colors: Color.fromARGB(255, 83, 83, 83).withOpacity(.3)
+              )
                 ]
               ),
               child: Padding(

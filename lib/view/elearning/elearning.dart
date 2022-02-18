@@ -24,7 +24,7 @@ class _ElearningState extends State<Elearning> {
     ElearningModel(
       title: "Atomic Habits", 
       subtitle: "Rahul Sah", 
-      imageName: "image12.png", 
+      imageName: "mang.png", 
       colors: Color.fromARGB(255, 89, 240, 194),
       colors2:Color.fromARGB(255, 89, 240, 194),
     ),
@@ -51,6 +51,15 @@ class _ElearningState extends State<Elearning> {
       imageName: "image10.png", 
       colors: Color.fromARGB(255, 121, 206, 252),
       colors2: Color.fromARGB(255, 121, 206, 252),
+      
+      
+    ),
+    ElearningModel(
+      title: "Atomic Habits", 
+      subtitle: "Rahul Sah", 
+      imageName: "image10.png", 
+      colors: Colors.green,
+      colors2: Colors.green,
       
       
     )
@@ -92,79 +101,109 @@ class _ElearningState extends State<Elearning> {
     );
   }
 
-  Container elearning_list(BuildContext context,{required String imageName, required String? title, required String subtitle, required Color colors,required Color colors2 }) {
-    return Container(
-          height:144.0, width: MediaQuery.of(context).size.width-33,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
+  Widget elearning_list(BuildContext context,{required String imageName, required String? title, required String subtitle, required Color colors,required Color colors2 }) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(24),
+      child: Container(
+            height:144.0, width: MediaQuery.of(context).size.width-33,
+            decoration: BoxDecoration(
               
-              colors: [
-                colors, colors2
-                //Color.fromARGB(255, 106, 235, 228),Color(0xff2A9691)
-            ]),
-            boxShadow: [
-              elevation(
-                offsetX: 4,
-                offsetY: 4,
-                blurRadius: 10,
-                spreadRadius: 1,
-                colors: Colors.black.withOpacity(.3)
-              )
-            ],
-            borderRadius: BorderRadius.circular(24),
-            color: colors
-          ),
-         child: Row(
-           children:[
-             //Padding(padding: EdgeInsets.all(9)),
-             SizedBox(
-               width: 144,
-               height: 140,
-               child: Image(image: AssetImage('assets/image/$imageName'))),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width/1.9,
-                      child: Text("$title",style:  TextStyle(fontSize: 24,fontWeight: FontWeight.bold,color: Colors.white, shadows: <Shadow>[
-                      Shadow(
-                        offset: Offset(1.0, 1.0),
-                        blurRadius: 2.0,
-                        color:Colors.black.withOpacity(0.2))
-                        ]),)),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width/1.9,
-                      child: Text("-$subtitle",style:  TextStyle(fontSize: 13,fontWeight: FontWeight.bold,color: Colors.white,shadows: <Shadow>[
-                      Shadow(
-                        offset: Offset(1.0, 1.0),
-                        blurRadius: 2.0,
-                        color:Colors.black.withOpacity(.2))]),)),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width/1.9,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            IconButton(
-                              tooltip: "Assignment",
-                              onPressed: (){
-                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Assignment()));
-                            }, icon: const Icon(Icons.folder),color: Colors.white,iconSize: 39,),
-                            IconButton(
-                              tooltip: "Assignment",
-                              onPressed: (){
-                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Materials()));
-                            }, icon: const Icon(Icons.folder_special_outlined),color: Colors.white, iconSize: 39,),
-                           // IconButton(onPressed: (){}, icon: Icon(Icons.folder_special_outlined),color: Colors.white,)
-                          ],
-                        ),
-                      )
-
-                  ],
+              gradient: LinearGradient(
+                
+                colors: [
+                  colors, colors2
+                  //Color.fromARGB(255, 106, 235, 228),Color(0xff2A9691)
+              ]),
+              boxShadow: [
+                elevation(
+                  offsetX: 4,
+                  offsetY: 4,
+                  blurRadius: 10,
+                  spreadRadius: 1,
+                  colors: Colors.black
                 )
-           ]
-         ),
-        );
+              ],
+              borderRadius: BorderRadius.circular(24),
+              color: colors
+            ),
+           child: Stack(
+             children: [
+
+               //start oval container ui
+               Positioned(
+                 top:-44,
+                 left: MediaQuery.of(context).size.width/1.6,
+                 child: RotationTransition(
+                   turns: const AlwaysStoppedAnimation(360/380),
+                   child: Container(
+                     //margin: EdgeInsets.only(top: 40, left: 40, right: 40),
+                     height: 111,width: 299,
+                     decoration: BoxDecoration(
+                       color: lighten(colors,30),
+                       borderRadius: new BorderRadius.all(Radius.elliptical(150, 80)),
+                     ),
+                   ),
+                 ),
+               ),
+               //end oval container ui
+
+
+               Row(
+                 children:[
+                   //Padding(padding: EdgeInsets.all(9)),
+                   SizedBox(
+                     width: 144,
+                     height: 140,
+                     child: Image(image: AssetImage('assets/image/$imageName'))),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width/1.9,
+                            child: Text("$title",style:  TextStyle(fontSize: 24,fontWeight: FontWeight.bold,color: Colors.white, shadows: <Shadow>[
+                            Shadow(
+                              offset: Offset(1.0, 1.0),
+                              blurRadius: 2.0,
+                              color:Colors.black.withOpacity(0.2))
+                              ]),)),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width/1.9,
+                            child: Text("-$subtitle",style:  TextStyle(fontSize: 13,fontWeight: FontWeight.bold,color: Colors.white,shadows: <Shadow>[
+                            Shadow(
+                              offset: Offset(1.0, 1.0),
+                              blurRadius: 2.0,
+                              color:Colors.black.withOpacity(.2))]),)),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width/1.9,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  IconButton(
+                                    tooltip: "Assignment",
+                                    onPressed: (){
+                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Assignment()));
+                                  }, icon: const Icon(Icons.folder),color: Colors.white,iconSize: 44,),
+                                  IconButton(
+                                    tooltip: "Materials",
+                                    onPressed: (){
+                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Materials()));
+                                  }, icon: const Icon(Icons.folder_special_outlined),color: Colors.white, iconSize: 44,),
+                                 // IconButton(onPressed: (){}, icon: Icon(Icons.folder_special_outlined),color: Colors.white,)
+                                ],
+                              ),
+                            )
+    
+                        ],
+                      )
+                 ]
+               ),
+    
+               
+             ],
+           ),
+          ),
+    );
   }
 }

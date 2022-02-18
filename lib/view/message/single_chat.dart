@@ -14,8 +14,9 @@ class _SingleChatState extends State<SingleChat> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
-      body: Column(
+      backgroundColor: Color(0xffEAF5FD),
+
+    body: Column(
         children: [
           ChatAppBar(),
           SizedBox(
@@ -38,10 +39,10 @@ class _SingleChatState extends State<SingleChat> {
                   ReceiverMessage(message: "hyy",),
                   SenderMessage(message: "hyy",),
                   ReceiverMessage(message: "K gardai xau",),
-                  SenderMessage(message: "yatikai basira xu ",),
-                    ReceiverMessage(message: "hyy",),
-                  SenderMessage(message: "hyy",),
-                  ReceiverMessage(message: "K gardai xau",),
+                  SenderMessage(message: "Lorem Ipsum is simply dummy text\nof the prinem Ipsum has been",),
+                    ReceiverMessage(message: "Lorem Ipsum is simply dummy text \nof the prinem Ipsum has been ",),
+                  SenderMessage(message: "Lorem Ipsum is simply dummy text\nof the prinem Ipsum has been",),
+                  ReceiverMessage(message: "Lorem Ipsum is simply dummy text \nof the prinem Ipsum has been ",),
                   SenderMessage(message: "yatikai basira xu ",)
                 ],
               ),
@@ -137,7 +138,7 @@ class SenderMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right:33.0,bottom: 22.0),
+      padding: const EdgeInsets.only(right:8.0,bottom: 22.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
@@ -146,7 +147,10 @@ class SenderMessage extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: color,
+                  gradient: LinearGradient(colors: [
+                  Color.fromARGB(255, 126, 209, 253),Color.fromARGB(255, 69, 190, 255), 
+                  ]),
+                 // color: Color.fromARGB(255, 126, 209, 253),
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(15),
                     bottomLeft:  Radius.circular(15),
@@ -158,22 +162,19 @@ class SenderMessage extends StatelessWidget {
                   child: Text("$message",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 17.0),),
                 )),
               SizedBox(width: 11.0,),
-              Container(
-                height: 29,width: 29,
-                decoration: BoxDecoration (
-                  border: Border.all(color: color),
-                  shape: BoxShape.circle,
-                  image: DecorationImage(image: NetworkImage("https://scontent.fbir5-1.fna.fbcdn.net/v/t1.6435-9/86937377_2630096997272845_4253014819956850688_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=5fcPYnxdJ10AX_Wy_nI&_nc_ht=scontent.fbir5-1.fna&oh=00_AT-V8Kc8FgSVR_KzflA9QLXXnBTHVv3SziQ7VW9rKlit9A&oe=6231C1DA"))
-                ),
-              ),
+              // Container(
+              //   height: 29,width: 29,
+              //   decoration: BoxDecoration (
+              //     border: Border.all(color: color),
+              //     shape: BoxShape.circle,
+              //     image: DecorationImage(image: NetworkImage("https://scontent.fbir5-1.fna.fbcdn.net/v/t1.6435-9/86937377_2630096997272845_4253014819956850688_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=5fcPYnxdJ10AX_Wy_nI&_nc_ht=scontent.fbir5-1.fna&oh=00_AT-V8Kc8FgSVR_KzflA9QLXXnBTHVv3SziQ7VW9rKlit9A&oe=6231C1DA"))
+              //   ),
+              // ),
               
               
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(right:98.0),
-            child: Text("1 min ago",style: TextStyle(color: Colors.grey),),
-          ) 
+          Center(child: Text("1 min ago",style: TextStyle(color: Colors.grey),)) 
         ],
       ),
     );
@@ -189,7 +190,7 @@ class ReceiverMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left:33.0,bottom: 33.0),
+      padding: const EdgeInsets.only(left:11.0,bottom: 33.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -221,10 +222,7 @@ class ReceiverMessage extends StatelessWidget {
                 )),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(left:98.0),
-            child: Text("1 min ago",style: TextStyle(color: Colors.grey),),
-          )
+          Center(child: Text("1 min ago",style: TextStyle(color: Colors.grey),))
         ],
       ),
     )

@@ -1,26 +1,22 @@
-
 import 'package:amss/view/kconstant.dart';
 import 'package:amss/view/message/single_chat.dart';
-import 'package:amss/view/message/single_chat_page.dart';
-import 'package:amss/view/widget/appbar/profile_appbar.dart';
 import 'package:amss/view/widget/appbar/profile_appbarC.dart';
 import 'package:flutter/material.dart';
 
-
-class ChatList extends StatefulWidget {
-  const ChatList({ Key? key }) : super(key: key);
+class ChatPage extends StatefulWidget {
+  const ChatPage({ Key? key }) : super(key: key);
 
   @override
-  _ChatListState createState() => _ChatListState();
+  _ChatPageState createState() => _ChatPageState();
 }
 
-class _ChatListState extends State<ChatList> {
+class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       backgroundColor: backgroundColor,
-      body: SingleChildScrollView(
+      appBar: ProfileAppBarC(title: "message",),
+      body:SingleChildScrollView(
         child: Column(
           children: [
             //SizedBox(height: 44.0,),
@@ -32,7 +28,7 @@ class _ChatListState extends State<ChatList> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     prefixIcon: Icon(Icons.search),
                     labelText: "Search",
                   ),
@@ -48,16 +44,13 @@ class _ChatListState extends State<ChatList> {
             ),
             //Padding(padding: EdgeInsets.all(44)),
            ListView.builder(
-             
-             padding: EdgeInsets.zero,
-             physics: ScrollPhysics(),
              scrollDirection: Axis.vertical,
              shrinkWrap: true,
              itemCount: 6,
              itemBuilder: (context,index){
                return  GestureDetector(
                  onTap:(){
-                   Navigator.of(context).push(MaterialPageRoute(builder: (context) => ChatPage()));
+                   Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SingleChat()));
                  },
                  child: Chat(image: "profile.png", message: "message", name: "name"));
              }
@@ -65,10 +58,10 @@ class _ChatListState extends State<ChatList> {
           ],
         ),
       ),
-      
     );
   }
 }
+
 
 class Chat extends StatelessWidget {
   String? image;

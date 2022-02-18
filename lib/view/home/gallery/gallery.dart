@@ -1,4 +1,5 @@
 import 'package:amss/view/home/gallery/single_gallery_image.dart';
+import 'package:amss/view/kconstant.dart';
 import 'package:amss/view/widget/appbar/profile_appbarC.dart';
 import 'package:flutter/material.dart';
 
@@ -11,11 +12,12 @@ class GalleryPage extends StatefulWidget {
 
 class _GalleryPageState extends State<GalleryPage> {
   List imagelist = [
-    'image1.jpeg','image2.jpeg','image3.jpeg','image4.jpeg','image1.jpeg','image5.jpeg', 'image1.jpeg','image2.jpeg','image3.jpeg','image4.jpeg','image1.jpeg','image5.jpeg', 'image1.jpeg','image2.jpeg','image3.jpeg','image4.jpeg','image1.jpeg','image5.jpeg',
+    'image2.jpeg','image1.jpeg','image3.jpeg','image4.jpeg','image1.jpeg','image5.jpeg', 'image1.jpeg','image2.jpeg','image3.jpeg','image4.jpeg','image1.jpeg','image5.jpeg', 'image1.jpeg','image2.jpeg','image3.jpeg','image4.jpeg','image1.jpeg','image5.jpeg',
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar:ProfileAppBarC(title: "Gallery",backArrow: true,),
       body: Container(
         child: Padding(

@@ -14,7 +14,7 @@ class _ResultMainState extends State<ResultMain> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor:Color(0xffEAF5FD) ,
       body: Column(
         children: [
           ProfileAppBar(title: "Result", backArrow: true,),
@@ -34,19 +34,25 @@ class _ResultMainState extends State<ResultMain> {
 
 Padding assignment_list(BuildContext context,{required String courseName,}) {
     return Padding(
-      padding: const EdgeInsets.only(top:18.0),
+      padding: const EdgeInsets.only(top:28.0),
       child: Container(
-            height:88.0, 
-            width: MediaQuery.of(context).size.width-33,
+            height:77.0, 
+            width: MediaQuery.of(context).size.width-55,
             decoration: BoxDecoration( 
               borderRadius: BorderRadius.circular(24),
               color: Color(0xffFAFAFA),
               boxShadow: [
-                elevation(colors: darken(Colors.grey, 33))
-              ]
+              elevation(
+                offsetX: 5,
+                offsetY: 4,
+                blurRadius: 10,
+                spreadRadius: 1,
+                colors: Color.fromARGB(255, 83, 83, 83).withOpacity(.3)
+              )
+            ],
             ),
            child: Padding(
-             padding: const EdgeInsets.all(8.0),
+             padding: const EdgeInsets.all(0.0),
              child: Column(
                crossAxisAlignment: CrossAxisAlignment.start,
                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
