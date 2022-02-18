@@ -49,9 +49,7 @@ class _ElibraryState extends State<Elibrary> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: Container(),
-      ),
+      
       appBar: ProfileAppBarC(
               title: "E-Library",
             ),
@@ -88,19 +86,25 @@ class _ElibraryState extends State<Elibrary> {
               padding: EdgeInsets.only(left:15.0,right: 15,top: 8.0),
               child: SizedBox(
                 //height: 44,
-                child: TextField(
-                
-                decoration: InputDecoration(
-                  helperStyle: TextStyle(fontSize: 33),
-                  //border: UnderlineInputBorder(),
-                  suffixIcon: Padding(
-                    padding: rightPadding,
-                    child: IconButton(onPressed: (){}, icon: Icon(Icons.search)),
+                child: SizedBox(
+                  height: 49,
+                  child: TextField(
+                  
+                    style: const TextStyle(fontSize: 15,),
+                    decoration: InputDecoration(
+                    //contentPadding: EdgeInsets.only(left: 55),
+                      suffixIcon: Padding(
+                        padding: rightPadding,
+                        child: IconButton(onPressed: (){}, icon: Icon(Icons.search)),
+                      ),
+                      
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(21), ),
+                      hintText: 'Enter a search term',
+                      hintStyle: const TextStyle(fontSize: 14, )
+                      
+                    ),
                   ),
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(21), ),
-                  hintText: 'Enter a search term',
                 ),
-          ),
               ),
             ),
             ListView.builder(

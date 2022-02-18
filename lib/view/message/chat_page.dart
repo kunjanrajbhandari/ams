@@ -22,23 +22,28 @@ class _ChatPageState extends State<ChatPage> {
             //SizedBox(height: 44.0,),
             
             SizedBox(height: 11.0,),
-            SizedBox(
-              width: MediaQuery.of(context).size.width-.0,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
+            Padding(
+              padding: EdgeInsets.only(left:15.0,right: 15,top: 8.0,bottom: 8),
+              child: SizedBox(
+                //height: 44,
+                child: SizedBox(
+                  height: 49,
+                  child: TextField(
                   
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.search),
-                    labelText: "Search",
+                    style: const TextStyle(fontSize: 15,),
+                    decoration: InputDecoration(
+                    contentPadding: EdgeInsets.only(left: 22),
+                      suffixIcon: Padding(
+                        padding: rightPadding,
+                        child: IconButton(onPressed: (){}, icon: Icon(Icons.search)),
+                      ),
+                      
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(17), ),
+                      hintText: 'Enter a search term',
+                      hintStyle: const TextStyle(fontSize: 14, )
+                      
+                    ),
                   ),
-                  
-                  validator: (value) {
-                  
-                  },
-                  onChanged: (value){
-                    //deliveryPhone = value;
-                  },
                 ),
               ),
             ),
@@ -81,7 +86,7 @@ class Chat extends StatelessWidget {
           Container(
             width: MediaQuery.of(context).size.width-2,
             //color: Colors.red,
-            height: 77.9,  
+            height: 61.9,//79  
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -108,7 +113,7 @@ class Chat extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(left:11.0),
+                            padding: const EdgeInsets.only(left:22.0),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -138,6 +143,7 @@ class Chat extends StatelessWidget {
               ],
             ),    
           ),
+          SizedBox(height: 8,),
           Divider(endIndent: 33, indent: 33,)
         ],
       ),

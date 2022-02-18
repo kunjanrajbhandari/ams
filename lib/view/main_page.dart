@@ -6,11 +6,10 @@ import 'package:amss/view/elearning/elearning.dart';
 import 'package:amss/view/elibrary/elibrary.dart';
 import 'package:amss/view/home/home.dart';
 import 'package:amss/view/kconstant.dart';
-import 'package:amss/view/message/chat_list.dart';
 import 'package:amss/view/more/more.dart';
 import 'package:flutter/material.dart';
 
-import 'message/single_chat_page.dart';
+import 'message/chat_page.dart';
 import 'widget/appbar/profile_appbar.dart';
 
 

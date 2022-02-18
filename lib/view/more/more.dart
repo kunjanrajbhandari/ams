@@ -4,6 +4,7 @@ import 'package:amss/view/more/payment/payment.dart';
 import 'package:amss/view/more/profile/profile.dart';
 import 'package:amss/view/more/result/main.dart';
 import 'package:amss/view/more/result/result.dart';
+import 'package:amss/view/more/settings/setting.dart';
 import 'package:flutter/material.dart';
 
 class ViewMore extends StatefulWidget {
@@ -58,7 +59,11 @@ class _ViewMoreState extends State<ViewMore> {
                     },
                     child: moreItem(context, image: 'payment.png', title: 'Payment')),
                   const Divider(endIndent: 11,indent: 11,),
-                  moreItem(context, image: 'setting.png', title: 'Settings'),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  const Setting()));
+                    },
+                    child: moreItem(context, image: 'setting.png', title: 'Settings')),
                   
                 ],
               ),
