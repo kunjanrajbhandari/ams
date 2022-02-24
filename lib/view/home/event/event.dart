@@ -1,4 +1,5 @@
 import 'package:amss/view/home/event/calendar.dart';
+import 'package:amss/view/home/event/calendarss.dart';
 import 'package:amss/view/kconstant.dart';
 import 'package:amss/view/widget/appbar/profile_appbarC.dart';
 import 'package:flutter/material.dart';
@@ -24,8 +25,8 @@ class _EventPageState extends State<EventPage> {
           Padding(
             padding:  EdgeInsets.only(top:38.0, right: mediaquery.orientation == Orientation.landscape?44:0),
             child: Container(
-              height: 399,
-              child: CalendarSF(),
+              height: 555,
+              child: MyCallendar(),
             ),
           )
         ],),

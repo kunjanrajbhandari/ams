@@ -45,3 +45,5 @@
 	<false/>
 </dict>
 </plist>
+<key>io.flutter.embed_views_preview</key>
+<true/>

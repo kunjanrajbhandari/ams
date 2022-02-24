@@ -155,8 +155,8 @@ class _AttendanceState extends State<Attendance> {
 
               //To style the Calendar
               calendarStyle: CalendarStyle(
-                rangeHighlightColor: Colors.red,
-                isTodayHighlighted: true,
+                canMarkersOverflow : false,
+                markerSize: 22,
                 selectedDecoration: BoxDecoration(
                   color: Colors.blue,
                   shape: BoxShape.rectangle,
@@ -165,7 +165,7 @@ class _AttendanceState extends State<Attendance> {
                 selectedTextStyle: TextStyle(color: Colors.white),
 
                 
-
+              markerDecoration: BoxDecoration(shape: BoxShape.rectangle,color: Colors.blue,),
                 todayDecoration: BoxDecoration(
                   color: Colors.green,
                   shape: BoxShape.rectangle,
@@ -174,7 +174,7 @@ class _AttendanceState extends State<Attendance> {
 
                 defaultDecoration: BoxDecoration(
                   shape: BoxShape.rectangle,
-                  //color: Colors.yellow,
+                 // color: Colors.green,
                   borderRadius: BorderRadius.circular(5.0),
                 ),
 
@@ -192,7 +192,7 @@ class _AttendanceState extends State<Attendance> {
                 formatButtonShowsNext: false,
                 formatButtonDecoration: BoxDecoration(
                   color: Colors.blue,
-                  borderRadius: BorderRadius.circular(5.0),
+                  borderRadius: BorderRadius.circular(9.0),
                 ),
                 formatButtonTextStyle: TextStyle(
                   color: Colors.white,
@@ -209,53 +209,53 @@ class _AttendanceState extends State<Attendance> {
           ),
         ],
       ),
-//       floatingActionButton: FloatingActionButton.extended(
-//         onPressed: () => showDialog(
-//           context: context,
-//           builder: (context) => AlertDialog(
-//             title: Text("Add Event"),
-//             content: TextFormField(
-//               controller: _eventController,
-//             ),
-//             actions: [
-//               TextButton(
-//                 child: Text("Cancel"),
-//                 onPressed: () => Navigator.pop(context),
-//               ),
-//               TextButton(
-//                 child: Text("Ok"),
-//                 onPressed: () {
-//                   if (_eventController.text.isEmpty) {
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () => showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text("Add Event"),
+            content: TextFormField(
+              controller: _eventController,
+            ),
+            actions: [
+              TextButton(
+                child: Text("Cancel"),
+                onPressed: () => Navigator.pop(context),
+              ),
+              TextButton(
+                child: Text("Ok"),
+                onPressed: () {
+                  if (_eventController.text.isEmpty) {
 
-//                   } 
-//                   else {
-//                     if (selectedEvents![selectedDay] != null) {
-//                       selectedEvents![selectedDay]!.add(
+                  } 
+                  else {
+                    if (selectedEvents![selectedDay] != null) {
+                      selectedEvents![selectedDay]!.add(
                         
-//                         Event(title: _eventController.text)
+                        Event(title: _eventController.text)
                         
-//                       );
+                      );
 
-//                       print(selectedEvents!)
-// ;                    } else {
-//                       selectedEvents![selectedDay] = [
-//                         Event(title: _eventController.text)
-//                       ];
-//                     }
+                      print(selectedEvents!)
+;                    } else {
+                      selectedEvents![selectedDay] = [
+                        Event(title: _eventController.text)
+                      ];
+                    }
 
-//                   }
-//                   Navigator.pop(context);
-//                   _eventController.clear();
-//                   setState((){});
-//                   return;
-//                 },
-//               ),
-//             ],
-//           ),
-//         ),
-//         label: Text("Add Event"),
-//         icon: Icon(Icons.add),
-//       ),
+                  }
+                  Navigator.pop(context);
+                  _eventController.clear();
+                  setState((){});
+                  return;
+                },
+              ),
+            ],
+          ),
+        ),
+        label: Text("Add Event"),
+        icon: Icon(Icons.add),
+      ),
     );
   }
 }

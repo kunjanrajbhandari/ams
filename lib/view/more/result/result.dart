@@ -1,6 +1,7 @@
 
 import 'package:amss/view/kconstant.dart';
 import 'package:amss/view/more/result/data.dart';
+import 'package:amss/view/more/result/pdf.dart';
 import 'package:amss/view/more/result/user.dart';
 import 'package:amss/view/widget/appbar/profile_appbar.dart';
 import 'package:flutter/material.dart';
@@ -45,6 +46,21 @@ class _SortablePageState extends State<SortablePage> {
                     onPressed: (){}, icon: Icon(Icons.file_download_sharp)),
                 ),
                 buildDataTable(),
+                Padding(
+                  padding:  EdgeInsets.only(left:MediaQuery.of(context).size.width/1.3),
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  WebViewTest()));
+                    },
+                    child: Container(
+                      color: Colors.red,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text("view pdf"),
+                      ),
+                    ),
+                  ),
+                )
               ],
             ),
           ),

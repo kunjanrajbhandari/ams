@@ -39,7 +39,7 @@ class _OnlineClassState extends State<OnlineClass> {
                 borderRadius: BorderRadius.circular(18),
                 boxShadow: [
                   elevation(
-                    colors: lighten(primaryColor,33)
+                    
                   ),
 
                  
