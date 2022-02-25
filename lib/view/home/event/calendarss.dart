@@ -1,9 +1,12 @@
 import 'dart:math';
+import 'package:amss/view/widget/appbar/profile_appbarC.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 class MyCallendar extends StatefulWidget {
-  MyCallendar({Key? key,}) : super(key: key);
+  MyCallendar({
+    Key? key,
+  }) : super(key: key);
 
   //final String title;
 
@@ -41,9 +44,7 @@ class _MyCallendarState extends State<MyCallendar> {
   }
 
   void addAppointments() {
-    var startTime = [
-      9,10,11,12,1,2,3,4
-    ];
+    var startTime = [9, 10, 11, 12, 1, 2, 3, 4];
     var subjectCollection = [
       'Present', 'Absent'
       // 'General Meeting',
@@ -60,9 +61,7 @@ class _MyCallendarState extends State<MyCallendar> {
 
     var colorCollection = [
       const Color(0xFF0F8644),
-      
       const Color(0xFFD20100),
-      
     ];
 
     _shiftCollection = <Appointment>[];
@@ -71,22 +70,20 @@ class _MyCallendarState extends State<MyCallendar> {
       var employeeIds = [calendarResource.id];
 
       for (int j = 0; j < 36; j++) {
-        
-          final DateTime date = DateTime.now().add(Duration(days: j ));
-          int startHour = startTime[Random().nextInt(8)];
-          // startHour =
-          //     startHour >= 13 && startHour <= 14 ? startHour + 1 : startHour;
-          final DateTime _shiftStartTime =
-              DateTime(date.year, date.month, date.day, startHour, 0, 0);
-          _shiftCollection.add(Appointment(
-              startTime: _shiftStartTime,
-              endTime: _shiftStartTime.add(Duration(hours: 1)),
-              subject: subjectCollection[Random().nextInt(2)],
-              color: colorCollection[Random().nextInt(2)],
-              startTimeZone: '',
-              endTimeZone: '',
-              resourceIds: employeeIds));
-        
+        final DateTime date = DateTime.now().add(Duration(days: j));
+        int startHour = startTime[Random().nextInt(8)];
+        // startHour =
+        //     startHour >= 13 && startHour <= 14 ? startHour + 1 : startHour;
+        final DateTime _shiftStartTime =
+            DateTime(date.year, date.month, date.day, startHour, 0, 0);
+        _shiftCollection.add(Appointment(
+            startTime: _shiftStartTime,
+            endTime: _shiftStartTime.add(Duration(hours: 1)),
+            subject: subjectCollection[Random().nextInt(2)],
+            color: colorCollection[Random().nextInt(2)],
+            startTimeZone: '',
+            endTimeZone: '',
+            resourceIds: employeeIds));
       }
     }
   }
@@ -101,31 +98,31 @@ class _MyCallendarState extends State<MyCallendar> {
       'Computer',
       'Nepali',
       'Math 2',
-      
     ];
 
-    var userImages = [
-      'https://scontent.fbir5-1.fna.fbcdn.net/v/t1.6435-9/86937377_2630096997272845_4253014819956850688_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=5fcPYnxdJ10AX_Wy_nI&_nc_ht=scontent.fbir5-1.fna&oh=00_AT-V8Kc8FgSVR_KzflA9QLXXnBTHVv3SziQ7VW9rKlit9A&oe=6231C1DA',
-      'https://scontent.fbir5-1.fna.fbcdn.net/v/t1.6435-9/86937377_2630096997272845_4253014819956850688_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=5fcPYnxdJ10AX_Wy_nI&_nc_ht=scontent.fbir5-1.fna&oh=00_AT-V8Kc8FgSVR_KzflA9QLXXnBTHVv3SziQ7VW9rKlit9A&oe=6231C1DA',
-      'https://scontent.fbir5-1.fna.fbcdn.net/v/t1.6435-9/86937377_2630096997272845_4253014819956850688_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=5fcPYnxdJ10AX_Wy_nI&_nc_ht=scontent.fbir5-1.fna&oh=00_AT-V8Kc8FgSVR_KzflA9QLXXnBTHVv3SziQ7VW9rKlit9A&oe=6231C1DA',
-      'https://scontent.fbir5-1.fna.fbcdn.net/v/t1.6435-9/86937377_2630096997272845_4253014819956850688_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=5fcPYnxdJ10AX_Wy_nI&_nc_ht=scontent.fbir5-1.fna&oh=00_AT-V8Kc8FgSVR_KzflA9QLXXnBTHVv3SziQ7VW9rKlit9A&oe=6231C1DA',
-      'https://scontent.fbir5-1.fna.fbcdn.net/v/t1.6435-9/86937377_2630096997272845_4253014819956850688_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=5fcPYnxdJ10AX_Wy_nI&_nc_ht=scontent.fbir5-1.fna&oh=00_AT-V8Kc8FgSVR_KzflA9QLXXnBTHVv3SziQ7VW9rKlit9A&oe=6231C1DA',
-      'https://scontent.fbir5-1.fna.fbcdn.net/v/t1.6435-9/86937377_2630096997272845_4253014819956850688_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=5fcPYnxdJ10AX_Wy_nI&_nc_ht=scontent.fbir5-1.fna&oh=00_AT-V8Kc8FgSVR_KzflA9QLXXnBTHVv3SziQ7VW9rKlit9A&oe=6231C1DA',
-      'https://scontent.fbir5-1.fna.fbcdn.net/v/t1.6435-9/86937377_2630096997272845_4253014819956850688_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=5fcPYnxdJ10AX_Wy_nI&_nc_ht=scontent.fbir5-1.fna&oh=00_AT-V8Kc8FgSVR_KzflA9QLXXnBTHVv3SziQ7VW9rKlit9A&oe=6231C1DA',
-      'https://scontent.fbir5-1.fna.fbcdn.net/v/t1.6435-9/86937377_2630096997272845_4253014819956850688_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=5fcPYnxdJ10AX_Wy_nI&_nc_ht=scontent.fbir5-1.fna&oh=00_AT-V8Kc8FgSVR_KzflA9QLXXnBTHVv3SziQ7VW9rKlit9A&oe=6231C1DA',
-      
-    ];
+    // var userImages = [
+    //   'https://scontent.fbir5-1.fna.fbcdn.net/v/t1.6435-9/86937377_2630096997272845_4253014819956850688_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=5fcPYnxdJ10AX_Wy_nI&_nc_ht=scontent.fbir5-1.fna&oh=00_AT-V8Kc8FgSVR_KzflA9QLXXnBTHVv3SziQ7VW9rKlit9A&oe=6231C1DA',
+    //   'https://scontent.fbir5-1.fna.fbcdn.net/v/t1.6435-9/86937377_2630096997272845_4253014819956850688_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=5fcPYnxdJ10AX_Wy_nI&_nc_ht=scontent.fbir5-1.fna&oh=00_AT-V8Kc8FgSVR_KzflA9QLXXnBTHVv3SziQ7VW9rKlit9A&oe=6231C1DA',
+    //   'https://scontent.fbir5-1.fna.fbcdn.net/v/t1.6435-9/86937377_2630096997272845_4253014819956850688_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=5fcPYnxdJ10AX_Wy_nI&_nc_ht=scontent.fbir5-1.fna&oh=00_AT-V8Kc8FgSVR_KzflA9QLXXnBTHVv3SziQ7VW9rKlit9A&oe=6231C1DA',
+    //   'https://scontent.fbir5-1.fna.fbcdn.net/v/t1.6435-9/86937377_2630096997272845_4253014819956850688_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=5fcPYnxdJ10AX_Wy_nI&_nc_ht=scontent.fbir5-1.fna&oh=00_AT-V8Kc8FgSVR_KzflA9QLXXnBTHVv3SziQ7VW9rKlit9A&oe=6231C1DA',
+    //   'https://scontent.fbir5-1.fna.fbcdn.net/v/t1.6435-9/86937377_2630096997272845_4253014819956850688_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=5fcPYnxdJ10AX_Wy_nI&_nc_ht=scontent.fbir5-1.fna&oh=00_AT-V8Kc8FgSVR_KzflA9QLXXnBTHVv3SziQ7VW9rKlit9A&oe=6231C1DA',
+    //   'https://scontent.fbir5-1.fna.fbcdn.net/v/t1.6435-9/86937377_2630096997272845_4253014819956850688_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=5fcPYnxdJ10AX_Wy_nI&_nc_ht=scontent.fbir5-1.fna&oh=00_AT-V8Kc8FgSVR_KzflA9QLXXnBTHVv3SziQ7VW9rKlit9A&oe=6231C1DA',
+    //   'https://scontent.fbir5-1.fna.fbcdn.net/v/t1.6435-9/86937377_2630096997272845_4253014819956850688_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=5fcPYnxdJ10AX_Wy_nI&_nc_ht=scontent.fbir5-1.fna&oh=00_AT-V8Kc8FgSVR_KzflA9QLXXnBTHVv3SziQ7VW9rKlit9A&oe=6231C1DA',
+    //   'https://scontent.fbir5-1.fna.fbcdn.net/v/t1.6435-9/86937377_2630096997272845_4253014819956850688_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=5fcPYnxdJ10AX_Wy_nI&_nc_ht=scontent.fbir5-1.fna&oh=00_AT-V8Kc8FgSVR_KzflA9QLXXnBTHVv3SziQ7VW9rKlit9A&oe=6231C1DA',
+
+    // ];
 
     _employeeCalendarResource = <CalendarResource>[];
     for (var i = 0; i < nameCollection.length; i++) {
       _employeeCalendarResource.add(CalendarResource(
-          id: '000' + i.toString(),
-          displayName: nameCollection[i],
-          color: Color.fromRGBO(Random().nextInt(255), Random().nextInt(255),
-              Random().nextInt(255), 1),
-          image:
-              i < userImages.length ? NetworkImage(userImages[i],scale: 11) : null)
-        );
+        id: '000' + i.toString(),
+        displayName: nameCollection[i],
+        color: Color.fromRGBO(Random().nextInt(255), Random().nextInt(255),
+            Random().nextInt(255), 1),
+        // image: i < userImages.length
+        //     ? NetworkImage(userImages[i], scale: 11)
+        //     : null
+      ));
     }
   }
 
