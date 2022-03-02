@@ -30,28 +30,25 @@ class _ChatPageState extends State<ChatPage> {
               padding:
                   EdgeInsets.only(left: 15.0, right: 15, top: 8.0, bottom: 8),
               child: SizedBox(
-                //height: 44,
-                child: SizedBox(
-                  height: 49,
-                  child: TextField(
-                    style: const TextStyle(
-                      fontSize: 15,
-                    ),
-                    decoration: InputDecoration(
-                        contentPadding: EdgeInsets.only(left: 22),
-                        suffixIcon: Padding(
-                          padding: rightPadding,
-                          child: IconButton(
-                              onPressed: () {}, icon: Icon(Icons.search)),
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(17),
-                        ),
-                        hintText: 'Enter a search term',
-                        hintStyle: const TextStyle(
-                          fontSize: 14,
-                        )),
+                height: 49,
+                child: TextField(
+                  style: const TextStyle(
+                    fontSize: 15,
                   ),
+                  decoration: InputDecoration(
+                      contentPadding: EdgeInsets.only(left: 22),
+                      suffixIcon: Padding(
+                        padding: rightPadding,
+                        child: IconButton(
+                            onPressed: () {}, icon: Icon(Icons.search)),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(17),
+                      ),
+                      hintText: 'Enter a search term',
+                      hintStyle: const TextStyle(
+                        fontSize: 14,
+                      )),
                 ),
               ),
             ),

@@ -4,8 +4,9 @@ import 'package:flutter/rendering.dart';
 Color color = Color.fromARGB(255, 110, 198, 245);
 Color primaryColor = const Color(0xff11284C);
 Color secondaryColor = const Color(0xffF0C848);
-Color profileColor = Color.fromARGB(255, 178, 226, 248);
-Color backgroundColor = Color.fromARGB(223, 195, 248, 255);
+Color profileColor = Color.fromARGB(235, 150, 210, 255);
+Color backgroundColor = Color(0xffEAF5FD);
+////Color.fromARGB(223, 195, 248, 255);
 //Color.fromARGB(237, 234, 246, 255);
 
 EdgeInsetsGeometry padding = const EdgeInsets.all(8);
